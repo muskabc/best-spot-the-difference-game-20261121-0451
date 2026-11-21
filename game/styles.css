@@ -1,0 +1,188 @@
+/* Spot the Difference — warm café-paper styling, plain CSS, no fonts fetched. */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f6ead2;
+  color: #3a2e22;
+  font-family: Georgia, 'Times New Roman', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topbar {
+  width: 100%;
+  max-width: 1220px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 0.5px;
+}
+
+.brand p {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: #7a5c3e;
+  font-style: italic;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.timer-label { font-size: 14px; }
+
+.timer-bar {
+  width: 150px;
+  height: 12px;
+  background: #e0cda6;
+  border: 1px solid #b89a6a;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.timer-fill {
+  height: 100%;
+  width: 100%;
+  background: #5da24a;
+  transition: width 0.3s linear;
+}
+
+.timer-fill.low { background: #d94f4f; }
+
+.timer-text {
+  font-size: 20px;
+  font-weight: bold;
+  min-width: 48px;
+}
+
+.counter {
+  font-size: 17px;
+  font-weight: bold;
+  background: #fff8e7;
+  border: 1px solid #b89a6a;
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
+.actions { display: flex; gap: 8px; }
+
+button {
+  font-family: inherit;
+  font-size: 14px;
+  background: #fff8e7;
+  color: #3a2e22;
+  border: 1px solid #b89a6a;
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) { background: #ffe9b8; }
+button:disabled { opacity: 0.45; cursor: default; }
+
+.boards {
+  display: flex;
+  gap: 20px;
+  padding: 4px 20px 0;
+  max-width: 1220px;
+  width: 100%;
+  justify-content: center;
+}
+
+.panel { margin: 0; }
+
+.panel figcaption {
+  text-align: center;
+  font-size: 15px;
+  font-style: italic;
+  color: #7a5c3e;
+  margin-bottom: 6px;
+}
+
+.panel canvas {
+  display: block;
+  width: 560px;
+  max-width: 100%;
+  height: auto;
+  border: 4px solid #7a4a2b;
+  border-radius: 10px;
+  background: #f3e3c2;
+  cursor: crosshair;
+  box-shadow: 0 4px 14px rgba(58, 46, 34, 0.25);
+}
+
+.statusbar {
+  width: 100%;
+  max-width: 1220px;
+  padding: 10px 20px 16px;
+  text-align: center;
+}
+
+.statusbar p { margin: 3px 0; }
+
+#message-text { font-size: 17px; font-weight: bold; }
+#accuracy-text { font-size: 14px; color: #7a5c3e; }
+.keys { font-size: 13px; color: #9a7d58; }
+
+kbd {
+  background: #fff8e7;
+  border: 1px solid #b89a6a;
+  border-radius: 4px;
+  padding: 0 5px;
+  font-family: inherit;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(58, 46, 34, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.overlay.visible { display: flex; }
+
+.overlay-card {
+  background: #fff8e7;
+  border: 3px solid #7a4a2b;
+  border-radius: 14px;
+  padding: 28px 36px;
+  text-align: center;
+  max-width: 480px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.overlay-card h2 { margin: 0 0 6px; font-size: 28px; }
+
+.stars {
+  font-size: 34px;
+  color: #e8a13c;
+  letter-spacing: 6px;
+  margin: 6px 0;
+}
+
+.overlay-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.overlay-buttons button { font-size: 16px; padding: 10px 16px; }
+#next-button { background: #5da24a; color: #fff; border-color: #4c8f3e; }
+#next-button:hover { background: #4c8f3e; }

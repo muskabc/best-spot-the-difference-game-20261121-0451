@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spot the Difference — The Corner Café</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1>🔍 Spot the Difference</h1>
+    <p id="scene-title">The Corner Café — Scene 1 of 2</p>
+  </div>
+  <div class="timer" aria-label="Time left">
+    <span class="timer-label">⏱ Time</span>
+    <div class="timer-bar"><div id="timer-fill" class="timer-fill"></div></div>
+    <span id="timer-text" class="timer-text">3:00</span>
+  </div>
+  <div class="counter" aria-label="Differences found">
+    <span id="counter-text">Found 0 / 8 · 8 left</span>
+  </div>
+  <div class="actions">
+    <button id="hint-button" type="button">💡 Hint (3)</button>
+    <button id="sound-button" type="button">🔊 Sound on</button>
+    <button id="restart-button" type="button">↻ Restart</button>
+  </div>
+</header>
+
+<main class="boards">
+  <figure class="panel">
+    <figcaption>Picture A — the original</figcaption>
+    <canvas id="panel-left" width="560" height="400"></canvas>
+  </figure>
+  <figure class="panel">
+    <figcaption>Picture B — spot what changed</figcaption>
+    <canvas id="panel-right" width="560" height="400"></canvas>
+  </figure>
+</main>
+
+<footer class="statusbar">
+  <p id="message-text">Find every difference — click it on either picture.</p>
+  <p id="accuracy-text">Accuracy 100% · 0 found · 0 misses</p>
+  <p class="keys">Keys: <kbd>H</kbd> hint · <kbd>R</kbd> restart · <kbd>M</kbd> sound · click a difference on either picture</p>
+</footer>
+
+<div id="overlay" class="overlay" role="dialog" aria-live="polite">
+  <div class="overlay-card">
+    <h2 id="overlay-title">Every difference found!</h2>
+    <p id="overlay-stars" class="stars">★★★</p>
+    <p id="overlay-stats"></p>
+    <div class="overlay-buttons">
+      <button id="next-button" type="button">Next scene →</button>
+      <button id="again-button" type="button">Try this scene again</button>
+    </div>
+  </div>
+</div>
+
+<p id="selftest-result" hidden></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
