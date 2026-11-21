@@ -56,6 +56,8 @@ function onPanelClick(canvas) {
         playWin();
         showOverlay(game, els);
       }
+    } else if (result.kind === 'already') {
+      game.lastMessage = `Already found — ${result.difference.label}.`;
     } else if (result.kind === 'miss') {
       game.misses.push({ x: point.x, y: point.y, at: performance.now() });
       registerWrongClick(game);

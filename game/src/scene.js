@@ -104,16 +104,20 @@ function drawCafeWindow(ctx, altered) {
   // Windowsill.
   ctx.fillStyle = '#8a5a35';
   ctx.fillRect(28, 216, 244, 12);
-  // The cat asleep on the sill — difference 2: gone on the right.
+  // The cat asleep on the sill — difference 2: gone on the right. A ginger
+  // tabby, so it reads against the pale wall instead of vanishing into it.
   if (!altered.has('cat')) {
-    ctx.fillStyle = '#e8e0d0';
-    blob(ctx, 205, 200, 26, 15, '#e8e0d0');
-    disc(ctx, 224, 188, 11, '#e8e0d0');
-    poly(ctx, [[218, 180], [221, 170], [226, 179]], '#e8e0d0');
-    poly(ctx, [[230, 179], [234, 170], [236, 180]], '#e8e0d0');
-    line(ctx, 232, 204, 252, 196, 3, '#e8e0d0');
+    ctx.fillStyle = '#e8a13c';
+    blob(ctx, 205, 200, 26, 15, '#e8a13c');
+    disc(ctx, 224, 188, 11, '#e8a13c');
+    poly(ctx, [[218, 180], [221, 170], [226, 179]], '#e8a13c');
+    poly(ctx, [[230, 179], [234, 170], [236, 180]], '#e8a13c');
+    line(ctx, 232, 204, 252, 196, 3, '#e8a13c');
     disc(ctx, 227, 187, 1.6, '#3a2e22');
-    disc(ctx, 206, 198, 8, '#d8cdb8');
+    disc(ctx, 206, 198, 8, '#f6ead2');
+    line(ctx, 196, 190, 196, 206, 2, '#b8574a');
+    line(ctx, 204, 188, 204, 208, 2, '#b8574a');
+    line(ctx, 212, 190, 212, 206, 2, '#b8574a');
   }
   // A little bird on a branch outside — difference 1: flown away on the right.
   if (!altered.has('bird')) {

@@ -30,11 +30,14 @@ export function findDifferenceAt(scene, found, point) {
   return best;
 }
 
-// Handle one click; returns 'found' with the difference, 'miss', or 'idle'
-// when the scene is already over.
+// Handle one click; returns 'found' with the difference, 'already' when the
+// player clicks a difference they found before (no penalty: they were right),
+// 'miss', or 'idle' when the scene is already over.
 export function handlePanelClick(game, scene, found, point) {
   if (game.over) return { kind: 'idle' };
   const hit = findDifferenceAt(scene, found, point);
   if (hit) return { kind: 'found', difference: hit };
+  const again = scene.differences.find((d) => found.has(d.id) && Math.hypot(point.x - d.x, point.y - d.y) <= d.r);
+  if (again) return { kind: 'already', difference: again };
   return { kind: 'miss', point };
 }

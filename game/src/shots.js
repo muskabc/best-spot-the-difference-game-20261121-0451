@@ -53,7 +53,13 @@ export function runSelfTest(game, clickAt) {
   clickAt({ x: 10, y: 390 }); // empty floor: a miss
   check('miss costs 5s', game.secondsLeft === before - 5 && game.wrongClicks === 1);
   check('miss recorded', game.misses.length === 1);
-  for (const d of game.scene.differences) clickAt({ x: d.x, y: d.y });
+  const firstThree = game.scene.differences.slice(0, 3);
+  for (const d of firstThree) clickAt({ x: d.x, y: d.y });
+  check('first three found', game.found.size === 3);
+  const leftAfterFind = game.secondsLeft;
+  clickAt({ x: firstThree[0].x, y: firstThree[0].y });
+  check('re-clicking a found difference costs nothing', game.secondsLeft === leftAfterFind && game.wrongClicks === 1 && game.found.size === 3);
+  for (const d of game.scene.differences.slice(3)) clickAt({ x: d.x, y: d.y });
   check('all 8 found', game.found.size === 8);
   check('counter reads 0 left', game.scene.differences.length - game.found.size === 0);
   check('win state triggers', game.won && game.over && !game.running);
